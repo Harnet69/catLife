@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CatLife</string>
+    <string name="cat_info">Cat info</string>
+    <string name="get_info">Get info</string>
+    <string name="err_msg">Smth goes wrong. Loading error</string>
+    <string name="cats_icon">Cats icon</string>
+</resources>
