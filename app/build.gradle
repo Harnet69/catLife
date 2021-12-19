@@ -45,8 +45,12 @@ dependencies {
     // parse JSON into Java and Kotlin classes
     implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
     kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.13.0'
-    // uses Moshi for serialization to and from JSON
+    // use Moshi for serialization to and from JSON
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
+    // OkHttp interceptor which logs HTTP request and response data
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
