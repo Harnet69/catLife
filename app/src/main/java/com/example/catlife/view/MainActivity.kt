@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
             visibility = View.VISIBLE
             text = catFactsList?.random()?.text.toString()
         }
+        cat_get_btn.visibility = View.VISIBLE
     }
 
     private fun onLoading() {
@@ -80,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         cat_info.apply {
             visibility = View.GONE
         }
+        cat_get_btn.visibility = View.GONE
     }
 
     private fun onError(errMsg: String?) {
@@ -91,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         cat_info.apply {
             visibility = View.GONE
         }
-        Log.i("resultCatFacts", "onFailure: $errMsg")
+
+        cat_get_btn.visibility = View.VISIBLE
     }
 }
