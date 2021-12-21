@@ -8,7 +8,7 @@ import io.reactivex.Single
  */
 class CatFactRepository(private val catFactService: CatFactService) {
 
-    // single
+    // single is observable which emits once on a subscription
     @Throws(Exception::class)
     fun getFact(): Single<String> {
         return catFactService.getFacts()
