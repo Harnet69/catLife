@@ -1,10 +1,10 @@
 package com.example.catlife.retrofit
 
 import com.example.catlife.model.CatFact
-import retrofit2.Call
+import io.reactivex.Single
 import retrofit2.http.GET
 
 interface CatFactService {
     @GET("facts")
-    fun getFacts(): Call<List<CatFact>>
+    fun getFacts(): Single<List<CatFact>>
 }
