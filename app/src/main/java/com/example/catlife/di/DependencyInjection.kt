@@ -1,8 +1,14 @@
 package com.example.catlife.di
 
+import com.example.catlife.catFact.CatFactAction
+import com.example.catlife.catFact.CatFactState
+import com.example.catlife.catFact.CatFactUseCase
+import com.example.catlife.catFact.CatFactUseCaseImpl
 import com.example.catlife.repository.CatFactRepository
 import com.example.catlife.retrofit.CatFactService
+import com.example.catlife.viewModel.CatFactViewModel
 import com.squareup.moshi.Moshi
+import com.ww.roxie.BaseViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,12 +18,12 @@ import retrofit2.create
 
 // used for testing
 interface DependencyInjection{
-    val catFactRepository: CatFactRepository
+    // in big projects is using ViewModelFactory
+    val catFactViewModel: BaseViewModel<CatFactAction, CatFactState>
 }
 
 class DependencyInjectionImpl: DependencyInjection{
-
-    override lateinit var catFactRepository: CatFactRepository
+    override lateinit var catFactViewModel: BaseViewModel<CatFactAction, CatFactState>
 
     init {
         // OkHttp interceptor which logs HTTP request and response data
@@ -41,7 +47,8 @@ class DependencyInjectionImpl: DependencyInjection{
 
         val catFactService = retrofit.create<CatFactService>()
 
-        catFactRepository = CatFactRepository(catFactService)
+        val catFactRepository = CatFactRepository(catFactService)
+        val catFactUseCase = CatFactUseCaseImpl(catFactRepository)
+        catFactViewModel =  CatFactViewModel(catFactUseCase)
     }
-
 }

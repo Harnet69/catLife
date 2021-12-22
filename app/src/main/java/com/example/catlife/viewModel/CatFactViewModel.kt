@@ -13,11 +13,6 @@ import io.reactivex.schedulers.Schedulers
 class CatFactViewModel(private val catFactUseCase: CatFactUseCase) :
     BaseViewModel<CatFactAction, CatFactState>() {
     override val initialState: CatFactState = CatFactState()
-
-    init {
-        bindActions()
-    }
-
     /*
      reducer function applies to function to previous state and returns a new state according
       changes we made
@@ -28,6 +23,10 @@ class CatFactViewModel(private val catFactUseCase: CatFactUseCase) :
             is CatFactChange.CatFactLoaded -> state.copy(loading = false, catFact = change.catFact)
             is CatFactChange.Error -> state.copy(loading = false, showErr = true)
         }
+    }
+
+    init {
+        bindActions()
     }
 
     private fun bindActions() {
