@@ -7,4 +7,6 @@ import com.ww.roxie.BaseAction
  */
 sealed class CatFactAction: BaseAction {
     object GetFactBtnClicked: CatFactAction()
+
+    //TODO implement swipe down to refresh a cat fact
 }
