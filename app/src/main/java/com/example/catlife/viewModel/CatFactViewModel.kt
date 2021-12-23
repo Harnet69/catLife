@@ -1,9 +1,9 @@
 package com.example.catlife.viewModel
 
-import com.example.catlife.catFact.CatFactAction
-import com.example.catlife.catFact.CatFactChange
-import com.example.catlife.catFact.CatFactState
-import com.example.catlife.catFact.CatFactUseCase
+import com.example.catlife.catfact.CatFactAction
+import com.example.catlife.catfact.CatFactChange
+import com.example.catlife.catfact.CatFactState
+import com.example.catlife.catfact.CatFactUseCase
 import com.ww.roxie.BaseViewModel
 import com.ww.roxie.Reducer
 import io.reactivex.android.schedulers.AndroidSchedulers

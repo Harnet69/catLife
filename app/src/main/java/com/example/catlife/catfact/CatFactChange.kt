@@ -1,4 +1,4 @@
-package com.example.catlife.catFact
+package com.example.catlife.catfact
 
 sealed class CatFactChange {
     // if not have any parameter - object, if has

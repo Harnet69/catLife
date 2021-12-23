@@ -1,4 +1,4 @@
-package com.example.catlife.catFact
+package com.example.catlife.catfact
 
 import com.example.catlife.repository.CatFactRepository
 import io.reactivex.Single

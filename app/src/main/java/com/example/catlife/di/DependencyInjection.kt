@@ -1,9 +1,8 @@
 package com.example.catlife.di
 
-import com.example.catlife.catFact.CatFactAction
-import com.example.catlife.catFact.CatFactState
-import com.example.catlife.catFact.CatFactUseCase
-import com.example.catlife.catFact.CatFactUseCaseImpl
+import com.example.catlife.catfact.CatFactAction
+import com.example.catlife.catfact.CatFactState
+import com.example.catlife.catfact.CatFactUseCaseImpl
 import com.example.catlife.repository.CatFactRepository
 import com.example.catlife.retrofit.CatFactService
 import com.example.catlife.viewModel.CatFactViewModel

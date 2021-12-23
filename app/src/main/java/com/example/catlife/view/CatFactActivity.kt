@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.catlife.R
-import com.example.catlife.catFact.CatFactAction
-import com.example.catlife.catFact.CatFactState
+import com.example.catlife.catfact.CatFactAction
+import com.example.catlife.catfact.CatFactState
 import com.example.catlife.di.di
 import com.example.catlife.viewModel.CatFactViewModel
 import kotlinx.android.synthetic.main.activity_main.*
