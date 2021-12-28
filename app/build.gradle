@@ -18,7 +18,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    testBuildType 'instrumented'
     buildTypes {
+        debug{
+            applicationIdSuffix '.debug'
+        }
+        instrumented{
+            initWith debug
+            applicationIdSuffix '.instrumented'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -66,5 +74,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    // https://github.com/square/okhttp/tree/master/mockwebserver
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.2.1"
+    androidTestImplementation "androidx.test:rules:1.2.0"
+    androidTestImplementation 'androidx.test:runner:1.2.0'
 
 }
