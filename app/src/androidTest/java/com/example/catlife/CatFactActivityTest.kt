@@ -36,23 +36,44 @@ class CatFactActivityTest {
         onView(withId(R.id.cat_get_btn)).check(matches(isEnabled()))
     }
 
-//    @Test
-//    fun catGetBtnPressed_factLoadedSuccessfully(){
-//        // mock web response
-//        val mockResponse = MockResponse()
-//        mockResponse.setBody(json)
-//        mockResponse.setResponseCode(200)
-//        mockWebServer.enqueue(mockResponse)
-//        mockWebServer.start(8500)
-//        // Android doesn't communicate with localhost directly, so we should define in xml folder network_security_config file
-//        onView(withId(R.id.loading_progress_bar)).check(matches(not(isDisplayed())))
-//        onView(withId(R.id.err_msg)).check(matches(not(isDisplayed())))
-//        onView(withId(R.id.cat_get_btn)).check(matches(withText(resources.getString(R.string.get_info))))
-//        onView(withId(R.id.cat_get_btn)).check(matches(isEnabled()))
-//        // preform click to a button
-//        onView(withId(R.id.cat_get_btn)).perform(click())
-//        // check if cat_info text has been changed to text from json
-//        onView(withId(R.id.cat_info)).check(matches(withText(fact)))
-//
-//    }
+    @Test
+    fun catGetBtnPressed_factLoadedSuccessfully(){
+        // mock web response
+        val mockResponse = MockResponse()
+        mockResponse.setBody(json)
+        mockResponse.setResponseCode(200)
+        mockWebServer.enqueue(mockResponse)
+        mockWebServer.start(8500)
+
+        // Android doesn't communicate with localhost directly, so we should define in xml folder network_security_config file
+        onView(withId(R.id.loading_progress_bar)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.err_msg)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.cat_get_btn)).check(matches(withText(resources.getString(R.string.get_info))))
+        onView(withId(R.id.cat_get_btn)).check(matches(isEnabled()))
+        // preform click to a button
+        onView(withId(R.id.cat_get_btn)).perform(click())
+        // check if cat_info text has been changed to text from json
+        onView(withId(R.id.cat_info)).check(matches(withText(fact)))
+
+    }
+
+    @Test
+    fun catGetBtnPressed_error_occurred(){
+        // mock web response
+        val mockResponse = MockResponse()
+        mockResponse.setResponseCode(400)
+        mockWebServer.enqueue(mockResponse)
+        mockWebServer.start(8500)
+        // Android doesn't communicate with localhost directly, so we should define in xml folder network_security_config file
+        onView(withId(R.id.loading_progress_bar)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.err_msg)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.cat_info)).check(matches(withText(resources.getString(R.string.cat_info))))
+        onView(withId(R.id.cat_get_btn)).check(matches(isEnabled()))
+        // preform click to a button
+        onView(withId(R.id.cat_get_btn)).perform(click())
+        // check if view has not been changed
+        onView(withId(R.id.cat_info)).check(matches(withText(R.string.cat_info)))
+        onView(withId(R.id.loading_progress_bar)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.err_msg)).check(matches(isDisplayed()))
+    }
 }
